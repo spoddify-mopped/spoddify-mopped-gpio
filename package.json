@@ -10,6 +10,7 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "onoff": "^6.0.3",
     "typescript": "^4.5.5"
   }
