@@ -1,7 +1,5 @@
 # Spoddify Mopped GPIO
 
-> Warning: This uses the **beta** plugin api of Spoddify Mopped.
-
 Spoddify Mopped GPIO is a plugin to control [Spoddify Mopped](https://github.com/spoddify-mopped/spoddify-mopped) using GPIO.
 
 - Volume rotary encoder
