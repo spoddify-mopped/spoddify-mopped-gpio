@@ -1,8 +1,20 @@
 {
   "name": "spoddify-mopped-gpio",
+  "displayName": "Spoddify Mopped GPIO",
+  "description": "A plugin to control Spoddify Mopped using GPIO.",
   "version": "0.0.0",
-  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spoddify-mopped/spoddify-mopped-gpio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spoddify-mopped/spoddify-mopped-gpio/issues"
+  },
   "license": "MIT",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=12"
+  },
   "files": [
     "dist"
   ],
@@ -43,5 +55,12 @@
       "node_modules"
     ],
     "exec": "tsc && spoddify-mopped -v"
-  }
+  },
+  "keywords": [
+    "spoddify-mopped",
+    "spoddify-mopped-plugin",
+    "spoddify-mopped-gpio",
+    "gpio",
+    "raspberry-pi"
+  ]
 }
