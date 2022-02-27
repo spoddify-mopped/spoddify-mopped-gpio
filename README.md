@@ -1,3 +1,4 @@
+[![npm Version](https://badgen.net/npm/v/spoddify-mopped)](https://www.npmjs.com/package/spoddify-mopped-gpio)
 # Spoddify Mopped GPIO
 
 Spoddify Mopped GPIO is a plugin to control [Spoddify Mopped](https://github.com/spoddify-mopped/spoddify-mopped) using GPIO.
