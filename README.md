@@ -16,6 +16,28 @@ You can install this plugin with:
 npm install -g spoddify-mopped-gpio
 ```
 
+## Config
+
+This plugin is configured in the [`config.json`](https://github.com/spoddify-mopped/spoddify-mopped/wiki/Config-File) of Spoddify Mopped.
+
+### Example:
+
+```json
+"plugins": {
+    "spoddify-mopped-gpio": {
+        "playPausePin": 15
+    }
+}
+```
+
+### Structure:
+
+| Key                         | Description                       |
+| --------------------------- | --------------------------------- |
+| `playPausePin` _(optional)_ | GPIO pin of the play pause button |
+| `nextPin` _(optional)_      | GPIO pin of the next button       |
+| `previousPin` _(optional)_  | GPIO pin of the previous button   |
+
 # Contributing
 
 Contributing and pull requests are very welcome.
