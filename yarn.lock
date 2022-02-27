@@ -2900,10 +2900,10 @@ source-map@^0.5.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spoddify-mopped@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/spoddify-mopped/-/spoddify-mopped-0.0.2.tgz#806f84b0661d0d71a972fe8bf5fe2a7548fbbbe3"
-  integrity sha512-YjUMbXvTgf+Ait/iaoVQTpqpwJmyt88SY0sLUjLrosaO+4JqcC7BILUqivDbXwCxWEMWun3ND9JUZj0lp3bm/w==
+spoddify-mopped@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/spoddify-mopped/-/spoddify-mopped-0.0.3.tgz#6e0df0f3c52f8bd2c45316c8672751bae6f60334"
+  integrity sha512-HqJ/IwEax1fwmmdZJevYKX4OYm1vYfk59UU3ui7TbdVBJbOk0p0tBeqcZQMZn1xi5HljOtPbbuIoeDH4aW+tBA==
   dependencies:
     axios "^0.26.0"
     better-sqlite3 "^7.5.0"
