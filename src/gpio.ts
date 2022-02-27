@@ -16,6 +16,11 @@ export default class GpioService {
   ) {
     this.logger = spoddifyMopped.getLogger('spoddify--mopped-gpio');
 
+    if (!Gpio.accessible) {
+      this.logger.warn('GPIO: is not accessible on this machine - skipping');
+      return;
+    }
+
     if (!config || Object.keys(config).length < 1) {
       this.logger.warn('GPIO: skipping - no config found.');
       return;
