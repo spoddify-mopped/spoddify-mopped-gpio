@@ -1,0 +1,16 @@
+{
+  "name": "spoddify-mopped-gpio",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "onoff": "^6.0.3",
+    "typescript": "^4.5.5"
+  }
+}
