@@ -1,4 +1,4 @@
-import onoff from "onoff";
+import onoff from 'onoff';
 
 let spoddifyMopped;
 
