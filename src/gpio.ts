@@ -14,7 +14,7 @@ export default class GpioService {
     private readonly spoddifyMopped: PluginApi,
     private readonly config?: Config
   ) {
-    this.logger = spoddifyMopped.getLogger('spoddify--mopped-gpio');
+    this.logger = spoddifyMopped.getLogger('spoddify-mopped-gpio');
 
     if (!Gpio.accessible) {
       this.logger.warn('GPIO: is not accessible on this machine - skipping');
