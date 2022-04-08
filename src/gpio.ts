@@ -5,6 +5,11 @@ export type Config = {
   playPausePin?: number;
   nextPin?: number;
   previousPin?: number;
+  volume?: {
+    clkPin: number;
+    dtPin: number;
+    swPin?: number;
+  };
 };
 
 export default class GpioService {
@@ -31,6 +36,7 @@ export default class GpioService {
     this.playPause();
     this.next();
     this.previous();
+    this.volume();
   }
 
   private playPause = () => {
@@ -81,6 +87,53 @@ export default class GpioService {
         }
 
         this.spoddifyMopped.previous();
+      });
+    }
+  };
+
+  private volume = () => {
+    if (this.config?.volume) {
+      this.logger.info('GPIO: Volume control enabled.');
+      const dt = new Gpio(this.config.volume.dtPin, 'in', 'both');
+      const clk = new Gpio(this.config.volume.clkPin, 'in', 'both');
+
+      clk.watch(async (err) => {
+        if (err) {
+          this.logger.error(`GPIO: Volume control failed with: ${err}`);
+          return;
+        }
+
+        const clkState = clk.readSync();
+        const dtState = dt.readSync();
+
+        if (clkState.valueOf() === 0 && dtState.valueOf() === 1) {
+          const player = await this.spoddifyMopped.getPlayer();
+
+          if (player) {
+            console.log(player.volume + 5);
+
+            await this.spoddifyMopped.setVolume(player.volume + 5);
+          }
+        }
+      });
+
+      dt.watch(async (err) => {
+        if (err) {
+          this.logger.error(`GPIO: Volume control failed with: ${err}`);
+          return;
+        }
+
+        const clkState = clk.readSync();
+        const dtState = dt.readSync();
+
+        if (clkState.valueOf() === 1 && dtState.valueOf() === 0) {
+          const player = await this.spoddifyMopped.getPlayer();
+
+          if (player) {
+            console.log(player.volume - 5);
+            await this.spoddifyMopped.setVolume(player.volume - 5);
+          }
+        }
       });
     }
   };
