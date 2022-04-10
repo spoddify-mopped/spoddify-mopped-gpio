@@ -110,9 +110,19 @@ export default class GpioService {
           const player = await this.spoddifyMopped.getPlayer();
 
           if (player) {
-            console.log(player.volume + 5);
+            if (player.volume === 100) {
+              return;
+            }
 
-            await this.spoddifyMopped.setVolume(player.volume + 5);
+            let newVolume = player.volume + 5;
+
+            if (newVolume > 100) {
+              newVolume = 100;
+            }
+
+            await this.spoddifyMopped
+              .setVolume(newVolume)
+              .catch(this.logger.error);
           }
         }
       });
@@ -130,8 +140,19 @@ export default class GpioService {
           const player = await this.spoddifyMopped.getPlayer();
 
           if (player) {
-            console.log(player.volume - 5);
-            await this.spoddifyMopped.setVolume(player.volume - 5);
+            if (player.volume === 0) {
+              return;
+            }
+
+            let newVolume = player.volume - 5;
+
+            if (newVolume < 0) {
+              newVolume = 0;
+            }
+
+            await this.spoddifyMopped
+              .setVolume(newVolume)
+              .catch(this.logger.error);
           }
         }
       });
