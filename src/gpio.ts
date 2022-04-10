@@ -62,9 +62,9 @@ export default class GpioService {
   private next = () => {
     if (this.config?.nextPin) {
       this.logger.info('GPIO: Next button enabled.');
-      const playPauseButton = new Gpio(this.config.nextPin, 'in', 'falling');
+      const nextButton = new Gpio(this.config.nextPin, 'in', 'falling');
 
-      playPauseButton.watch((err) => {
+      nextButton.watch((err) => {
         if (err) {
           this.logger.error(`GPIO: Next button failed with: ${err}`);
           return;
