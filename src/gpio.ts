@@ -156,6 +156,19 @@ export default class GpioService {
           }
         }
       });
+
+      if (this.config.volume.swPin) {
+        this.logger.info('GPIO: Volume button enabled.');
+        const sw = new Gpio(this.config.volume.swPin, 'in', 'falling');
+        sw.watch(async (err) => {
+          if (err) {
+            this.logger.error(`GPIO: Volume button failed with: ${err}`);
+            return;
+          }
+
+          this.spoddifyMopped.playPause();
+        });
+      }
     }
   };
 }
