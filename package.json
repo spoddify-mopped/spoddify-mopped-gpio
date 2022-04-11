@@ -2,7 +2,7 @@
   "name": "spoddify-mopped-gpio",
   "displayName": "Spoddify Mopped GPIO",
   "description": "A plugin to control Spoddify Mopped using GPIO.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/spoddify-mopped/spoddify-mopped-gpio.git"
