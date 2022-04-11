@@ -70,7 +70,9 @@ export default class GpioService {
           return;
         }
 
-        this.spoddifyMopped.next();
+        this.spoddifyMopped.next().catch((err) => {
+          this.logger.error(`Next button failed due to an error ${err}`);
+        });
       });
     }
   };
@@ -86,7 +88,9 @@ export default class GpioService {
           return;
         }
 
-        this.spoddifyMopped.previous();
+        this.spoddifyMopped.previous().catch((err) => {
+          this.logger.error(`Previous button failed due to an error ${err}`);
+        });
       });
     }
   };
@@ -107,7 +111,9 @@ export default class GpioService {
         const dtState = dt.readSync();
 
         if (clkState.valueOf() === 0 && dtState.valueOf() === 1) {
-          const player = await this.spoddifyMopped.getPlayer();
+          const player = await this.spoddifyMopped
+            .getPlayer()
+            .catch(this.logger.error);
 
           if (player) {
             if (player.volume === 100) {
@@ -120,9 +126,7 @@ export default class GpioService {
               newVolume = 100;
             }
 
-            await this.spoddifyMopped
-              .setVolume(newVolume)
-              .catch(this.logger.error);
+            this.spoddifyMopped.setVolume(newVolume).catch(this.logger.error);
           }
         }
       });
@@ -137,7 +141,9 @@ export default class GpioService {
         const dtState = dt.readSync();
 
         if (clkState.valueOf() === 1 && dtState.valueOf() === 0) {
-          const player = await this.spoddifyMopped.getPlayer();
+          const player = await this.spoddifyMopped
+            .getPlayer()
+            .catch(this.logger.error);
 
           if (player) {
             if (player.volume === 0) {
@@ -150,9 +156,7 @@ export default class GpioService {
               newVolume = 0;
             }
 
-            await this.spoddifyMopped
-              .setVolume(newVolume)
-              .catch(this.logger.error);
+            this.spoddifyMopped.setVolume(newVolume).catch(this.logger.error);
           }
         }
       });
